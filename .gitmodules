@@ -1,0 +1,3 @@
+[submodule "Project/CsLib"]
+	path = Project/CsLib
+	url = git@github.com:hananoki/CsLib.git

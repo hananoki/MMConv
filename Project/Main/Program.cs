@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing;
-
-using MediaInfoDotNet;
+using CsLib;
 
 namespace MMConv {
 	///using FileInfoList = List<MediaFileInfo>;
@@ -26,6 +23,8 @@ namespace MMConv {
 
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault( false );
+
+				Helper._init();
 				Application.Run( new MainWindow() );
 			}
 		}

@@ -57,10 +57,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LitJSON, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\LitJson.0.13.0\lib\net45\LitJSON.dll</HintPath>
+      <HintPath>..\packages\LitJson.0.13.0\lib\net45\LitJSON.dll</HintPath>
     </Reference>
     <Reference Include="MediaInfoDotNet, Version=0.7.79.40925, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MediaInfoDotNet.0.7.79.40925\lib\net45\MediaInfoDotNet.dll</HintPath>
+      <HintPath>..\packages\MediaInfoDotNet.0.7.79.40925\lib\net45\MediaInfoDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -74,48 +74,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Common\ArrayUtility.cs" />
-    <Compile Include="Source\Common\CueSheet.cs" />
-    <Compile Include="Source\Common\Helper.cs" />
-    <Compile Include="Source\Common\mp3infp.cs" />
-    <Compile Include="Source\Common\StringExtensions.cs" />
-    <Compile Include="Source\Common\Win32.cs" />
-    <Compile Include="Source\Log\Log.cs" />
-    <Compile Include="Source\Log\LogWindow.cs">
+    <Compile Include="CsLib\ArrayUtility.cs" />
+    <Compile Include="CsLib\CueSheet.cs" />
+    <Compile Include="CsLib\Debug.cs" />
+    <Compile Include="CsLib\Helper.cs" />
+    <Compile Include="CsLib\JsonUtils.cs" />
+    <Compile Include="CsLib\Log.cs" />
+    <Compile Include="CsLib\LogWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Log\LogWindow.Designer.cs">
+    <Compile Include="CsLib\LogWindow.Designer.cs">
       <DependentUpon>LogWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Command\CommandType.cs" />
-    <Compile Include="Source\Main\MediaFileInfo.cs" />
-    <Compile Include="Source\Tool\ToolAdapter.cs" />
-    <Compile Include="Source\Tool\ToolType.cs" />
-    <Compile Include="Source\Tool\ToolConfigWindow.cs">
+    <Compile Include="CsLib\mp3infp.cs" />
+    <Compile Include="CsLib\StringExtensions.cs" />
+    <Compile Include="CsLib\Win32.cs" />
+    <Compile Include="Command\CommandType.cs" />
+    <Compile Include="Main\MediaFileInfo.cs" />
+    <Compile Include="Tool\ToolAdapter.cs" />
+    <Compile Include="Tool\ToolType.cs" />
+    <Compile Include="Tool\ToolConfigWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Tool\ToolConfigWindow.Designer.cs">
+    <Compile Include="Tool\ToolConfigWindow.Designer.cs">
       <DependentUpon>ToolConfigWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Main\MainWindow.cs">
+    <Compile Include="Main\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Main\MainWindow.Designer.cs">
+    <Compile Include="Main\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Main\MainWindowHelper.cs" />
-    <Compile Include="Source\Command\CommandJob.cs" />
-    <Compile Include="Source\Command\CommandInfo.cs" />
-    <Compile Include="Source\Main\Setting.cs" />
-    <Compile Include="Source\Main\Program.cs" />
+    <Compile Include="Main\MainWindowHelper.cs" />
+    <Compile Include="Command\CommandJob.cs" />
+    <Compile Include="Command\CommandInfo.cs" />
+    <Compile Include="Main\Config.cs" />
+    <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Source\Log\LogWindow.resx">
-      <DependentUpon>LogWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Tool\ToolConfigWindow.resx">
+    <EmbeddedResource Include="Tool\ToolConfigWindow.resx">
       <DependentUpon>ToolConfigWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Main\MainWindow.resx">
+    <EmbeddedResource Include="Main\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,9 +125,7 @@
     <None Include="MediaInfoDotNet.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

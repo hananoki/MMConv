@@ -1,21 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
+using CsLib;
 
 namespace MMConv {
-	public class Setting {
-		int witdh;
+	public class Config {
+		int width;
+		int height;
+		public int x;
+		public int y;
+
 		public int Width {
 			get {
-				if( witdh == 0 ) return 800;
-				return witdh;
+				if( width == 0 ) return 800;
+				return width;
 			}
-			set { witdh = value; }
+			set { width = value; }
 		}
-		int height;
+		
 		public int Height {
 			get {
 				if( height == 0 ) return 600;
@@ -45,10 +48,22 @@ namespace MMConv {
 		public string toolXWMA;
 		public string toolFUZ;
 
+		public void RollbackWindow( Control window ) {
+			window.Location = new Point( x, y );
+			window.Width = Width;
+			window.Height = Height;
+		}
+
+		public void BackupWindow( Control window ) {
+			x = window.Location.X;
+			y = window.Location.Y;
+			width = window.Width;
+			height = window.Height;
+		}
 
 		public void WriteSettingJson( string filepath ) {
 			using( var st = new StreamWriter( filepath ) ) {
-				string json = JsonUtils.ToJson( MainWindow.m_setting );// LitJson.JsonMapper.ToJson( m_setting );
+				string json = JsonUtils.ToJson( MainWindow.m_config );// LitJson.JsonMapper.ToJson( m_setting );
 				st.Write( json );
 			}
 		}
@@ -56,7 +71,7 @@ namespace MMConv {
 		public void ReadSettingJson( string filepath, Action complete = null ) {
 			try {
 				using( var st = new StreamReader( filepath ) ) {
-					MainWindow.m_setting = LitJson.JsonMapper.ToObject<Setting>( st.ReadToEnd() );
+					MainWindow.m_config = LitJson.JsonMapper.ToObject<Config>( st.ReadToEnd() );
 				}
 				complete?.Invoke();
 			}

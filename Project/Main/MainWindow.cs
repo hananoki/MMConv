@@ -28,21 +28,11 @@ namespace MMConv {
 	/// </summary>
 	public partial class MainWindow : Form {
 
-		public string m_appName;
-		public string m_appPath;
-		//static string CONFIG_PATH {
-		//	//	get { return rt.userAppDataPath + "\\" + "Dropoin.json"; }
-		//	get { return @"C:\usr\local\config\MediaFX.json"; }
-		//}
-		public  string m_configPath {
-			get { return $"{m_appPath}\\{m_appName}.json"; }
-		}
-
-		public static Setting m_settingInstance;
-		public static Setting m_setting {
+		public static Config m_settingInstance;
+		public static Config m_config {
 			get {
 				if( m_settingInstance == null ) {
-					m_settingInstance = new Setting();
+					m_settingInstance = new Config();
 				}
 				return m_settingInstance;
 			}
@@ -56,17 +46,17 @@ namespace MMConv {
 
 		string m_userSaveDir {
 			get {
-				return m_setting.userSaveDir;
+				return m_config.userSaveDir;
 			}
 			set {
-				m_setting.userSaveDir = value;
+				m_config.userSaveDir = value;
 			}
 		}
 
 		// 0:入力と一緒
 		int m_outputDirMode {
-			get { return m_setting.outputDirMode; }
-			set { m_setting.outputDirMode = value; }
+			get { return m_config.outputDirMode; }
+			set { m_config.outputDirMode = value; }
 		}
 
 
@@ -85,8 +75,8 @@ namespace MMConv {
 		LogWindow m_logWindow;
 
 		CommandType m_actionType {
-			get { return (CommandType) m_setting.actionType; }
-			set { m_setting.actionType = (int) value; }
+			get { return (CommandType) m_config.actionType; }
+			set { m_config.actionType = (int) value; }
 		}
 
 		public  void MakeToolMap() {
@@ -94,42 +84,42 @@ namespace MMConv {
 				{
 					ToolType.FFMPEG,
 					new ToolAdapter(
-						f => m_setting.toolFFMPEG = f,
-						() => m_setting.toolFFMPEG,
+						f => m_config.toolFFMPEG = f,
+						() => m_config.toolFFMPEG,
 						m_ToolConfigWindow.editDlgFFMpeg )
 				},{
 					ToolType.FLAC,
 					new ToolAdapter(
-						f => m_setting.toolFLAC = f,
-						() => m_setting.toolFLAC,
+						f => m_config.toolFLAC = f,
+						() => m_config.toolFLAC,
 						m_ToolConfigWindow.editDlgFlac )
 				},{
 					ToolType.MP3GAIN,
 					new ToolAdapter(
-						f=>m_setting.toolMP3GAIN=f, ()=>{return m_setting.toolMP3GAIN;},m_ToolConfigWindow.editDlgMP3Gain ) },
-				{ ToolType.NEROAAC,   new ToolAdapter( f=>m_setting.toolNEROAAC=f, ()=>{return m_setting.toolNEROAAC;},m_ToolConfigWindow.editDlgNeroAAC ) },
-				{ ToolType.TAK,       new ToolAdapter( f=>m_setting.toolTAK =f,     ()=>{return m_setting.toolTAK;},m_ToolConfigWindow.editDlgTak ) },
-				{ ToolType.SHNTOOL,   new ToolAdapter( f=>m_setting.toolSHNTOOL=f,     ()=>{return m_setting.toolSHNTOOL;}, m_ToolConfigWindow.editDlgShn ) },
-				{ ToolType.SOX,       new ToolAdapter( f=>m_setting.toolSOX=f,     ()=>{return m_setting.toolSOX;}, m_ToolConfigWindow.editDlgSoX ) },
+						f=>m_config.toolMP3GAIN=f, ()=>{return m_config.toolMP3GAIN;},m_ToolConfigWindow.editDlgMP3Gain ) },
+				{ ToolType.NEROAAC,   new ToolAdapter( f=>m_config.toolNEROAAC=f, ()=>{return m_config.toolNEROAAC;},m_ToolConfigWindow.editDlgNeroAAC ) },
+				{ ToolType.TAK,       new ToolAdapter( f=>m_config.toolTAK =f,     ()=>{return m_config.toolTAK;},m_ToolConfigWindow.editDlgTak ) },
+				{ ToolType.SHNTOOL,   new ToolAdapter( f=>m_config.toolSHNTOOL=f,     ()=>{return m_config.toolSHNTOOL;}, m_ToolConfigWindow.editDlgShn ) },
+				{ ToolType.SOX,       new ToolAdapter( f=>m_config.toolSOX=f,     ()=>{return m_config.toolSOX;}, m_ToolConfigWindow.editDlgSoX ) },
 				{
 				ToolType.SEVENZ, new ToolAdapter(
-					f => m_setting.tool7Z=f,
-					() => m_setting.tool7Z,
+					f => m_config.tool7Z=f,
+					() => m_config.tool7Z,
 					m_ToolConfigWindow.editDlg7Z )
 				},{
 				ToolType.WAVEGAIN, new ToolAdapter(
-					f=>m_setting.toolWAVEGAIN=f,
-					()=>{return m_setting.toolWAVEGAIN;},
+					f=>m_config.toolWAVEGAIN=f,
+					()=>{return m_config.toolWAVEGAIN;},
 					m_ToolConfigWindow.editDlgWavGain )
 				},{
 				ToolType.XWMA, new ToolAdapter(
-					f=>m_setting.toolXWMA=f,
-					()=>{return m_setting.toolXWMA;},
+					f=>m_config.toolXWMA=f,
+					()=>{return m_config.toolXWMA;},
 					m_ToolConfigWindow.editDlgXWMA )
 				},{
 				ToolType.FUZ, new ToolAdapter(
-					f => m_setting.toolFUZ = f,
-					() => m_setting.toolFUZ,
+					f => m_config.toolFUZ = f,
+					() => m_config.toolFUZ,
 					m_ToolConfigWindow.editDlgFUZ )
 				},
 			};
@@ -169,20 +159,7 @@ namespace MMConv {
 			InitializeComponent();
 			MainWindowHelper.s_MainWindow = this;
 
-			// フォームのDoubleBufferedもtrueにする
-			//this.DoubleBuffered = true;
-
-			PropertyInfo prop = m_listView.GetType().GetProperty( "DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic );
-			prop.SetValue( m_listView, true, null );
-
-			var location = Assembly.GetExecutingAssembly().Location;
-			m_appName = location.GetBaseName();
-
-			var exePath = Directory.GetParent( location );
-			m_appPath = exePath.FullName;
-			Debug.Log( $"{m_appPath} : {m_appName}" );
-			Debug.Log( Environment.OSVersion.ToString() );
-			
+			m_listView.SetDoubleBuffered( true );
 		}
 
 
@@ -505,15 +482,15 @@ namespace MMConv {
 				timer.Stop();
 			} );
 
-			m_setting.ReadSettingJson( m_configPath );
+			Helper.ReadJson( ref m_settingInstance, Helper.m_configPath );
 
 			Debug.Log( "環境変数を設定します" );
 
-			var toolPaths = m_setting.GetToolPathList().
+			var toolPaths = m_config.GetToolPathList().
 				Where( x => !string.IsNullOrEmpty( x ) ).
 				Select( x => Path.GetDirectoryName( x ) ).ToArray();
 
-			global::Helper.SetEnvironmentPath( string.Join( ";", toolPaths ) );
+			Helper.SetEnvironmentPath( string.Join( ";", toolPaths ) );
 
 			try {
 				Font = SystemFonts.IconTitleFont;
@@ -524,7 +501,7 @@ namespace MMConv {
 				
 				MakeCommandMap();
 				MakeToolMap();
-				comboBox1.SelectedIndex = m_setting.outputDirMode;
+				comboBox1.SelectedIndex = m_config.outputDirMode;
 				UpdateOutputDirectory();
 
 				if( m_actionMap != null ) {
@@ -554,9 +531,7 @@ namespace MMConv {
 				// 必須：描画に必要なListViewItemを返すイベント追加
 				m_listView.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler( listView1_RetrieveVirtualItem );
 
-				
-				this.Width = m_setting.Width;
-				this.Height = m_setting.Height;
+				m_config.RollbackWindow( this );
 
 				UpdateOutputDirectory();
 
@@ -568,19 +543,22 @@ namespace MMConv {
 				SetExceptionLog( e );
 			}
 
-
-			m_logWindow = new LogWindow();
-			m_logWindow.Show();
-			m_logWindow.Visible = false;
+			
+			LogWindow.Visible = false;
 			//m_logWindow.AddLog("start log");
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Form1_FormClosing( object sender, FormClosingEventArgs e ) {
-			m_setting.Width = this.Width;
-			m_setting.Height = this.Height;
-			m_setting.outputDirMode = comboBox1.SelectedIndex;
-			m_setting.WriteSettingJson( m_configPath );
+			m_config.outputDirMode = comboBox1.SelectedIndex;
+			m_config.BackupWindow( this );
+			Helper.WriteJson( m_config, Helper.m_configPath );
 		}
+
 
 		private void m_btnOpenFileDlg_Click( object sender, EventArgs e ) {
 			//FolderBrowserDialogクラスのインスタンスを作成
@@ -714,7 +692,7 @@ namespace MMConv {
 
 		private void button2_Click( object sender, EventArgs e ) {
 			//if( !m_logWindow.Visible ) {
-				m_logWindow.Visible=true;
+			LogWindow.Visible = true;
 			//}
 		}
 

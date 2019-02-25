@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
-
+using CsLib;
 
 namespace MMConv {
 	public static class MainWindowHelper {
@@ -11,6 +11,13 @@ namespace MMConv {
 
 		static byte[] s_sndJobStart;
 		static byte[] s_sndJobFinish;
+
+		public static string ChangeOutputDir( string outputDir, string fullpath ) {
+			if( outputDir == null ) {
+				return fullpath.GetDirectory();
+			}
+			return outputDir;
+		}
 
 		public static void Init() {
 
@@ -25,8 +32,8 @@ namespace MMConv {
 				return buf;
 			};
 
-			s_sndJobStart = ReadBinaryFile( MainWindow.m_setting.seStart );
-			s_sndJobFinish = ReadBinaryFile( MainWindow.m_setting.seFinish );
+			s_sndJobStart = ReadBinaryFile( MainWindow.m_config.seStart );
+			s_sndJobFinish = ReadBinaryFile( MainWindow.m_config.seFinish );
 		}
 
 

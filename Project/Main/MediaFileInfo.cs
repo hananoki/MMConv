@@ -9,7 +9,7 @@ using System.Reflection;
 
 using MediaInfoDotNet;
 using MediaInfoLib;
-
+using CsLib;
 
 namespace MMConv {
 	public class MediaFileInfo {

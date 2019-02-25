@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using Tsukikage.DllPInvoke.MP3Tag;
 using System.Threading;
 using System.Collections.Concurrent;
-using System.Diagnostics;
+//using System.Diagnostics;
+using CsLib;
 
 namespace MMConv {
 	public class CommandJobData {
@@ -98,7 +99,7 @@ namespace MMConv {
 			p.StartInfo.Arguments = arguments;
 			p.StartInfo.UseShellExecute = false;
 			p.StartInfo.CreateNoWindow = true;
-			p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+			p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
 			p.StartInfo.RedirectStandardOutput = true;
 			p.StartInfo.RedirectStandardError = true;
@@ -141,7 +142,7 @@ namespace MMConv {
 			return 0;
 			/**/
 		}
-		private static void ErrorDataHandler( object sendingProcess, DataReceivedEventArgs errLine ) {
+		private static void ErrorDataHandler( object sendingProcess, System.Diagnostics.DataReceivedEventArgs errLine ) {
 			if( errLine.Data == null )
 				return;
 
@@ -153,7 +154,7 @@ namespace MMConv {
 			commandOutput.Error = commandOutput.Error + errLine.Data + "\n";
 		}
 
-		private static void OutputDataHandler( object sendingProcess, DataReceivedEventArgs outputLine ) {
+		private static void OutputDataHandler( object sendingProcess, System.Diagnostics.DataReceivedEventArgs outputLine ) {
 			if( outputLine.Data == null )
 				return;
 
@@ -756,7 +757,7 @@ namespace MMConv {
 				var filepath = f.filepath;
 				Helper.SetCurrentDirectory( filepath.GetDirectory() );
 
-				var outputDir = Helper.ChangeOutputDir( j.outputDir, filepath ).changeShortPath();
+				var outputDir = MainWindowHelper.ChangeOutputDir( j.outputDir, filepath ).changeShortPath();
 				var wavdir = outputDir + "\\" + filepath.GetBaseName() + "_WAV";
 
 				//結合wavをcueで分割する
@@ -861,7 +862,7 @@ namespace MMConv {
 				str.Append( f.v.filepath.getFileName().quote() );
 			}
 
-			var newOutput = Helper.ChangeOutputDir( j.outputDir, j.fileInfoList[ 0 ].filepath );
+			var newOutput = MainWindowHelper.ChangeOutputDir( j.outputDir, j.fileInfoList[ 0 ].filepath );
 			string outputName = @"{0}\{1} - {2}.wav".format( newOutput, cueSheet.m_performer, cueSheet.m_title );
 
 			//ファイル名に使用できない文字を取得
