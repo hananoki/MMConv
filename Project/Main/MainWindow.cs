@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Reflection;
-
-using Tsukikage.DllPInvoke.MP3Tag;
-using MediaInfoDotNet;
-using System.Runtime.InteropServices; //DllImport属性を使用するために必要
-
+using CsLib;
 
 namespace MMConv {
 	//using StringList = List<string>;
-	
+
 
 	//using FileInfoList = List<MediaFileInfo>;
 	//using MP3Infp = Tsukikage.DllPInvoke.MP3Tag.MP3Infp;
