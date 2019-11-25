@@ -39,15 +39,6 @@
 			this.m_btnOpenFileDlg = new System.Windows.Forms.Button();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.m_uiStart = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.m_txtNotify = new System.Windows.Forms.Label();
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.m_picNotify = new System.Windows.Forms.PictureBox();
-			this.m_pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.m_rbtnWavSplitGain = new System.Windows.Forms.RadioButton();
 			this.m_rbtnWavSplit = new System.Windows.Forms.RadioButton();
 			this.m_rbtnWavGain = new System.Windows.Forms.RadioButton();
@@ -63,6 +54,15 @@
 			this.m_rbtnCDBatch = new System.Windows.Forms.RadioButton();
 			this.m_rbtnCopyM4V = new System.Windows.Forms.RadioButton();
 			this.m_rbtnCnvWav = new System.Windows.Forms.RadioButton();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.m_uiStart = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.m_txtNotify = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.m_picNotify = new System.Windows.Forms.PictureBox();
+			this.m_pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -226,112 +226,6 @@
 			this.groupBox2.TabIndex = 4;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "目的の動作";
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.button2);
-			this.panel3.Controls.Add(this.button1);
-			this.panel3.Controls.Add(this.m_uiStart);
-			this.panel3.Controls.Add(this.button4);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(0, 0);
-			this.panel3.Margin = new System.Windows.Forms.Padding(0);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(699, 26);
-			this.panel3.TabIndex = 7;
-			// 
-			// button2
-			// 
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(183, 3);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(48, 20);
-			this.button2.TabIndex = 10;
-			this.button2.Text = "ログ";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// button1
-			// 
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(89, 3);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(88, 20);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "リストをクリア";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.OnClick_ListClear);
-			// 
-			// m_uiStart
-			// 
-			this.m_uiStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_uiStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.m_uiStart.FlatAppearance.BorderSize = 0;
-			this.m_uiStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.m_uiStart.Image = ((System.Drawing.Image)(resources.GetObject("m_uiStart.Image")));
-			this.m_uiStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.m_uiStart.Location = new System.Drawing.Point(635, 3);
-			this.m_uiStart.Name = "m_uiStart";
-			this.m_uiStart.Size = new System.Drawing.Size(61, 20);
-			this.m_uiStart.TabIndex = 9;
-			this.m_uiStart.Text = "実行";
-			this.m_uiStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.m_uiStart.UseVisualStyleBackColor = true;
-			this.m_uiStart.Click += new System.EventHandler(this.m_uiStart_Click);
-			// 
-			// button4
-			// 
-			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.button4.FlatAppearance.BorderSize = 0;
-			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(3, 3);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(80, 20);
-			this.button4.TabIndex = 8;
-			this.button4.Text = "ツール設定";
-			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.OnClick_ToolPanel);
-			// 
-			// m_txtNotify
-			// 
-			this.m_txtNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.m_txtNotify.AutoSize = true;
-			this.m_txtNotify.Location = new System.Drawing.Point(29, 479);
-			this.m_txtNotify.Name = "m_txtNotify";
-			this.m_txtNotify.Size = new System.Drawing.Size(99, 12);
-			this.m_txtNotify.TabIndex = 4;
-			this.m_txtNotify.Text = "例外が発生しました";
-			// 
-			// m_picNotify
-			// 
-			this.m_picNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.m_picNotify.Location = new System.Drawing.Point(3, 478);
-			this.m_picNotify.Name = "m_picNotify";
-			this.m_picNotify.Size = new System.Drawing.Size(20, 20);
-			this.m_picNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.m_picNotify.TabIndex = 8;
-			this.m_picNotify.TabStop = false;
-			// 
-			// m_pictureBox1
-			// 
-			this.m_pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_pictureBox1.Location = new System.Drawing.Point(669, 474);
-			this.m_pictureBox1.Name = "m_pictureBox1";
-			this.m_pictureBox1.Size = new System.Drawing.Size(24, 24);
-			this.m_pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.m_pictureBox1.TabIndex = 5;
-			this.m_pictureBox1.TabStop = false;
 			// 
 			// m_rbtnWavSplitGain
 			// 
@@ -566,6 +460,112 @@
 			this.m_rbtnCnvWav.UseVisualStyleBackColor = true;
 			this.m_rbtnCnvWav.CheckedChanged += new System.EventHandler(this.OnRadioBtn_CheckedChanged);
 			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.button2);
+			this.panel3.Controls.Add(this.button1);
+			this.panel3.Controls.Add(this.m_uiStart);
+			this.panel3.Controls.Add(this.button4);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel3.Location = new System.Drawing.Point(0, 0);
+			this.panel3.Margin = new System.Windows.Forms.Padding(0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(699, 26);
+			this.panel3.TabIndex = 7;
+			// 
+			// button2
+			// 
+			this.button2.FlatAppearance.BorderSize = 0;
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button2.Location = new System.Drawing.Point(183, 3);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(48, 20);
+			this.button2.TabIndex = 10;
+			this.button2.Text = "ログ";
+			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button1
+			// 
+			this.button1.FlatAppearance.BorderSize = 0;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(89, 3);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(88, 20);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "リストをクリア";
+			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.OnClick_ListClear);
+			// 
+			// m_uiStart
+			// 
+			this.m_uiStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_uiStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.m_uiStart.FlatAppearance.BorderSize = 0;
+			this.m_uiStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.m_uiStart.Image = ((System.Drawing.Image)(resources.GetObject("m_uiStart.Image")));
+			this.m_uiStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.m_uiStart.Location = new System.Drawing.Point(635, 3);
+			this.m_uiStart.Name = "m_uiStart";
+			this.m_uiStart.Size = new System.Drawing.Size(61, 20);
+			this.m_uiStart.TabIndex = 9;
+			this.m_uiStart.Text = "実行";
+			this.m_uiStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.m_uiStart.UseVisualStyleBackColor = true;
+			this.m_uiStart.Click += new System.EventHandler(this.m_uiStart_Click);
+			// 
+			// button4
+			// 
+			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.button4.FlatAppearance.BorderSize = 0;
+			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button4.Location = new System.Drawing.Point(3, 3);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(80, 20);
+			this.button4.TabIndex = 8;
+			this.button4.Text = "ツール設定";
+			this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.OnClick_ToolPanel);
+			// 
+			// m_txtNotify
+			// 
+			this.m_txtNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_txtNotify.AutoSize = true;
+			this.m_txtNotify.Location = new System.Drawing.Point(29, 479);
+			this.m_txtNotify.Name = "m_txtNotify";
+			this.m_txtNotify.Size = new System.Drawing.Size(99, 12);
+			this.m_txtNotify.TabIndex = 4;
+			this.m_txtNotify.Text = "例外が発生しました";
+			// 
+			// m_picNotify
+			// 
+			this.m_picNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.m_picNotify.Location = new System.Drawing.Point(3, 478);
+			this.m_picNotify.Name = "m_picNotify";
+			this.m_picNotify.Size = new System.Drawing.Size(20, 20);
+			this.m_picNotify.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.m_picNotify.TabIndex = 8;
+			this.m_picNotify.TabStop = false;
+			// 
+			// m_pictureBox1
+			// 
+			this.m_pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_pictureBox1.Location = new System.Drawing.Point(669, 474);
+			this.m_pictureBox1.Name = "m_pictureBox1";
+			this.m_pictureBox1.Size = new System.Drawing.Size(24, 24);
+			this.m_pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.m_pictureBox1.TabIndex = 5;
+			this.m_pictureBox1.TabStop = false;
+			// 
 			// MainWindow
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -582,7 +582,7 @@
 			this.Controls.Add(this.m_listView);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainWindow";
-			this.Text = "MMConv";
+			this.Text = "MMConv v20191125";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBox1.ResumeLayout(false);

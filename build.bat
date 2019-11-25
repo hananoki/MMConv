@@ -1,4 +1,4 @@
-"C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe" /p:Configuration=Release Project/MMConv.csproj
+"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /p:Configuration=Release Project/MMConv.csproj
 
 copy Project\bin\Release\MMConv.exe .\Build
 copy Project\bin\Release\*.dll .\Build

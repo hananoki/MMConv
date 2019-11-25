@@ -61,7 +61,7 @@ namespace MMConv {
 
 
 		const string m_videoType = "mp4|m4v|avi|mpg|mpeg|flv|webm|mkv";
-		const string m_audioType = "m4a|mp3|mka|mp2|wav|tak|flac|ape|tta|wv|ogg|xwm|fuz";
+		const string m_audioType = "m4a|mp3|mka|mp2|wav|tak|flac|ape|tta|wv|ogg|xwm|fuz|bms|bme";
 		const string m_mediaType = m_videoType + "|" + m_audioType;
 
 		public static ParallelOptions m_parallelOptions = new ParallelOptions();
@@ -121,6 +121,11 @@ namespace MMConv {
 					f => m_config.toolFUZ = f,
 					() => m_config.toolFUZ,
 					m_ToolConfigWindow.editDlgFUZ )
+				},{
+				ToolType.BMS, new ToolAdapter(
+					f => m_config.toolBMS = f,
+					() => m_config.toolBMS,
+					m_ToolConfigWindow.editDlgBMS )
 				},
 			};
 		}
@@ -274,7 +279,7 @@ namespace MMConv {
 		}
 
 
-		static bool geFilterFilename( string file ) {
+		static bool ExecDragAndDropFilter( string file ) {
 			return System.Text.RegularExpressions.Regex.IsMatch(
 					file,
 					"\\.(?:" + m_mediaType + ")$",
@@ -357,7 +362,7 @@ namespace MMConv {
 				if( type == DropFileType.None ) continue;
 
 				if( type == DropFileType.Directory ) {
-					string[] files = Array.FindAll( Directory.GetFiles( s, "*", SearchOption.AllDirectories ), geFilterFilename );
+					string[] files = Array.FindAll( Directory.GetFiles( s, "*", SearchOption.AllDirectories ), ExecDragAndDropFilter );
 
 					foreach( var wav in files ) {
 						addData( wav );
@@ -365,7 +370,7 @@ namespace MMConv {
 				}
 				//ファイル
 				else if( type == DropFileType.File ) {
-					if( geFilterFilename( s ) ) {
+					if( ExecDragAndDropFilter( s ) ) {
 						addData( s );
 					}
 				}
@@ -394,7 +399,6 @@ namespace MMConv {
 			} );
 
 			SetNotifyText( "解析が終了しました" );
-			//m_fileList.Where();
 
 			m_listView.VirtualListSize = m_fileList.Count;
 			_item = new ListViewItem[ m_fileList.Count ];

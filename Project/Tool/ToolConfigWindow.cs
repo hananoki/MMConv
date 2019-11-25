@@ -25,6 +25,7 @@ namespace MMConv {
 		public TextBox editDlgWavGain { get { return m_editDlgWavGain; } }
 		public TextBox editDlgXWMA { get { return m_editDlgXWMA; } }
 		public TextBox editDlgFUZ { get { return m_editDlgFUZ; } }
+		public TextBox editDlgBMS { get { return m_editDlgBMS; } }
 
 		public Button[] btnList;
 
@@ -36,6 +37,7 @@ namespace MMConv {
 			InitializeComponent();
 
 			btnList = new Button[] {
+				button4,
 				button3,
 				button2,
 				button1,
@@ -45,7 +47,9 @@ namespace MMConv {
 				m_btnDlgTak,
 				m_btnDlgMP3Gain,
 				m_btnDlgNeroAAC,
-				m_btnDlgFlac,m_btnDlgFFMpeg,
+				m_btnDlgFlac,
+				m_btnDlgFFMpeg,
+
 			};
 
 			foreach(var b in btnList ) {

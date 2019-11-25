@@ -47,6 +47,7 @@ namespace MMConv {
 		public string toolWAVEGAIN;
 		public string toolXWMA;
 		public string toolFUZ;
+		public string toolBMS;
 
 		public void RollbackWindow( Control window ) {
 			window.Location = new Point( x, y );
@@ -95,6 +96,7 @@ namespace MMConv {
 				tool7Z,
 				toolWAVEGAIN,
 				toolXWMA,
+				toolBMS,
 			};
 			return lst;
 		}

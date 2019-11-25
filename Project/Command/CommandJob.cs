@@ -313,6 +313,13 @@ namespace MMConv {
 				string newfilepath = MainWindowHelper.ChangeOutputFileName( outputDir, filepath, "wav" );
 
 				switch( fileinfo.format ) {
+					case "BMS":
+						newfilepath = MainWindowHelper.ChangeOutputFileName( outputDir, null, "wav", fixedFileName( $"{fileinfo.artist} - {fileinfo.trackName}" ) ); 
+						StartProcess(
+							"bmx2wavc",
+							$"{filepath.quote()} {newfilepath.quote()}" );
+						break;
+
 					case "XWM":
 						StartProcess(
 							"xwmaencode",
@@ -690,11 +697,15 @@ namespace MMConv {
 						break;
 					case "MPEG-4":
 					case "MPEG Audio":
+					case "AAC":
 						StartProcess( "mp3gain", "/r /c /k /p {0}".format( fname ) );
+						break;
+					default:
+						Debug.Warning( "対応するフォーマットが見つかりませんでした" );
 						break;
 				}
 			} );
-			MessageProcessComplete( @"「WaveGain」が完了しました" );
+			MessageProcessComplete( @"「ReplayGain」が完了しました" );
 		}
 
 

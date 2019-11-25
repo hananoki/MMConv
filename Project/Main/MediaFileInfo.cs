@@ -91,7 +91,7 @@ namespace MMConv {
 		public bool noMediaInfo;
 
 		public bool Init( string filepath ) {
-			var mediaFile = new MediaInfoDotNet.MediaFile( filepath );
+			
 			//if( !mediaFile.HasStreams ) {
 			//	// 大文字と小文字を区別しない一致
 			//	if( System.Text.RegularExpressions.Regex.IsMatch(
@@ -115,8 +115,21 @@ namespace MMConv {
 			//	return false;
 			//}
 
-			Dictionary<String, String> dic = new Dictionary<string, string>();
 
+			switch( filepath.getExt().ToLower() ) {
+				case ".bms":
+				case ".bme": {
+					m_format = "BMS";
+					var b = new BMSParse();
+					b.Read( filepath );
+					m_artist = b.m_ARTIST;
+					m_trackName = b.m_TITLE;
+					return true;
+				}
+			}
+
+			var mediaFile = new MediaInfoDotNet.MediaFile( filepath );
+			var dic = new Dictionary<string, string>();
 			using( var lol = new MediaInfo() ) {
 				var prop = lol.GetType().GetField( "MustUseAnsi", BindingFlags.Instance | BindingFlags.NonPublic );
 				prop.SetValue( lol, false );

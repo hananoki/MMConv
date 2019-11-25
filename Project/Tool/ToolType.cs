@@ -12,5 +12,6 @@ namespace MMConv {
 		WAVEGAIN,
 		XWMA,
 		FUZ,
+		BMS,
 	}
 }

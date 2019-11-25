@@ -37,7 +37,7 @@ namespace MMConv {
 		}
 
 
-		public static string ChangeOutputFileName( string outputDir, string fullpath, string ext ) {
+		public static string ChangeOutputFileName( string outputDir, string fullpath, string ext, string baseName = null ) {
 			if( outputDir == null ) {
 				//var dir = fullpath.getDirectory().changeShortPath();
 				//var fname = fullpath.getFileName().changeExt( ext );
@@ -45,6 +45,9 @@ namespace MMConv {
 				//var ss = 
 				//ss = ss.changeShortPath();
 				return fullpath.ChangeExtention( ext );
+			}
+			if( !string.IsNullOrEmpty( baseName ) ) {
+				return @"{0}\{1}.{2}".format( outputDir, baseName, ext );
 			}
 			string s = @"{0}\{1}.{2}".format( outputDir, fullpath.GetBaseName(), ext );
 			return s;

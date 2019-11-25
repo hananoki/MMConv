@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof( ToolConfigWindow ) );
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToolConfigWindow));
 			this.label1 = new System.Windows.Forms.Label();
 			this.m_btnOK = new System.Windows.Forms.Button();
 			this.m_btnCancel = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
 			this.m_btnDlgFlac = new System.Windows.Forms.Button();
 			this.m_editDlgFFMpeg = new System.Windows.Forms.TextBox();
 			this.m_btnDlgFFMpeg = new System.Windows.Forms.Button();
+			this.m_editDlgBMS = new System.Windows.Forms.TextBox();
+			this.button4 = new System.Windows.Forms.Button();
+			this.label12 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -75,7 +78,7 @@
 			// m_btnOK
 			// 
 			this.m_btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_btnOK.Location = new System.Drawing.Point(379, 516);
+			this.m_btnOK.Location = new System.Drawing.Point(379, 551);
 			this.m_btnOK.Name = "m_btnOK";
 			this.m_btnOK.Size = new System.Drawing.Size(75, 23);
 			this.m_btnOK.TabIndex = 6;
@@ -86,7 +89,7 @@
 			// m_btnCancel
 			// 
 			this.m_btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.m_btnCancel.Location = new System.Drawing.Point(298, 516);
+			this.m_btnCancel.Location = new System.Drawing.Point(298, 551);
 			this.m_btnCancel.Name = "m_btnCancel";
 			this.m_btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.m_btnCancel.TabIndex = 7;
@@ -458,11 +461,48 @@
 			this.m_btnDlgFFMpeg.Tag = MMConv.ToolType.FFMPEG;
 			this.m_btnDlgFFMpeg.UseVisualStyleBackColor = true;
 			// 
-			// ToolDialog
+			// m_editDlgBMS
+			// 
+			this.m_editDlgBMS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.m_editDlgBMS.Location = new System.Drawing.Point(12, 515);
+			this.m_editDlgBMS.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.m_editDlgBMS.Name = "m_editDlgBMS";
+			this.m_editDlgBMS.Size = new System.Drawing.Size(412, 19);
+			this.m_editDlgBMS.TabIndex = 38;
+			this.m_editDlgBMS.Tag = MMConv.ToolType.BMS;
+			// 
+			// button4
+			// 
+			this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+			this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.button4.Location = new System.Drawing.Point(430, 515);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(24, 24);
+			this.button4.TabIndex = 40;
+			this.button4.Tag = MMConv.ToolType.BMS;
+			this.button4.UseVisualStyleBackColor = true;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label12.Location = new System.Drawing.Point(10, 498);
+			this.label12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(137, 12);
+			this.label12.TabIndex = 39;
+			this.label12.Text = "bmx2wav (bmx2wavc.exe)";
+			// 
+			// ToolConfigWindow
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(466, 551);
+			this.ClientSize = new System.Drawing.Size(466, 586);
 			this.ControlBox = false;
+			this.Controls.Add(this.m_editDlgBMS);
+			this.Controls.Add(this.button4);
+			this.Controls.Add(this.label12);
 			this.Controls.Add(this.m_editDlgFUZ);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.label11);
@@ -499,7 +539,7 @@
 			this.Controls.Add(this.m_btnDlgFFMpeg);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "ToolDialog";
+			this.Name = "ToolConfigWindow";
 			this.Text = "ツール設定";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ResumeLayout(false);
@@ -544,5 +584,8 @@
 		private System.Windows.Forms.TextBox m_editDlgFUZ;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TextBox m_editDlgBMS;
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Label label12;
 	}
 }

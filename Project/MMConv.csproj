@@ -91,6 +91,7 @@
     <Compile Include="CsLib\Win32.cs" />
     <Compile Include="Command\CommandType.cs" />
     <Compile Include="Main\MediaFileInfo.cs" />
+    <Compile Include="Tool\BMSParse.cs" />
     <Compile Include="Tool\ToolAdapter.cs" />
     <Compile Include="Tool\ToolType.cs" />
     <Compile Include="Tool\ToolConfigWindow.cs">
